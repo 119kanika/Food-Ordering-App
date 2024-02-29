@@ -1,42 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
 
 const Body = () => {
-  const [listOfRest, setListOfRest] = useState([
-    {
-      data: {
-        id: "334455",
-        name: "KFC",
-        cloudinaryImageId: "bdcd233971b7c81bf77e1fa4471280eb",
-        cuisines: ["burgers", "Biryani", "American"],
-        costForTwo: 40000,
-        deliveryTime: 36,
-        avgRating: "3.8",
-      },
-    },
-    {
-      data: {
-        id: "334455",
-        name: "Burger King",
-        cloudinaryImageId: "bdcd233971b7c81bf77e1fa4471280eb",
-        cuisines: ["burgers", "Biryani", "American"],
-        costForTwo: 40000,
-        deliveryTime: 36,
-        avgRating: "4.2",
-      },
-    },
-    {
-      data: {
-        id: "334466",
-        name: "Domino's",
-        cloudinaryImageId: "bdcd233971b7c81bf77e1fa4471280eb",
-        cuisines: ["burgers", "Biryani", "American"],
-        costForTwo: 40000,
-        deliveryTime: 36,
-        avgRating: "4.1",
-      },
-    },
-  ]);
+  const [listOfRest, setListOfRest] = useState([]);
+
+
+  useEffect(() => {
+    fetchData();
+  }, [])
+
+  const fetchData = async () => {
+    // const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6126255&lng=77.04108959999999&page_type=DESKTOP_WEB_LISTING");
+
+    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING");
+
+    const json = await data.json();
+    console.log(json);
+
+    //optional chaining
+    setListOfRest(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+  }
+
 
   return (
     <div className="body">
@@ -55,7 +39,7 @@ const Body = () => {
       </div>
       <div className="res-container">
         {listOfRest.map((restaurant) => (
-          <RestaurantCard key={restaurant.data.id} resData={restaurant.data} />
+          <RestaurantCard key={restaurant.info} resData={restaurant.info} />
         ))}
       </div>
     </div>
