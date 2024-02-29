@@ -2,32 +2,41 @@ import React, { useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 
 const Body = () => {
-  const [listOfRest] = useState([]);
-
-  // let listOfRest = [
-  //   {
-  //     data: {
-  //       id: "334455",
-  //       name: "KFC",
-  //       cloudinaryImageId: "bdcd233971b7c81bf77e1fa4471280eb",
-  //       cuisines: ["burgers", "Biryani", "American"],
-  //       costForTwo: 40000,
-  //       deliveryTime: 36,
-  //       avgRating: "3.8",
-  //     },
-  //   },
-  //   {
-  //     data: {
-  //       id: "334466",
-  //       name: "Domino's",
-  //       cloudinaryImageId: "bdcd233971b7c81bf77e1fa4471280eb",
-  //       cuisines: ["burgers", "Biryani", "American"],
-  //       costForTwo: 40000,
-  //       deliveryTime: 36,
-  //       avgRating: "4.0",
-  //     },
-  //   },
-  // ];
+  const [listOfRest, setListOfRest] = useState([
+    {
+      data: {
+        id: "334455",
+        name: "KFC",
+        cloudinaryImageId: "bdcd233971b7c81bf77e1fa4471280eb",
+        cuisines: ["burgers", "Biryani", "American"],
+        costForTwo: 40000,
+        deliveryTime: 36,
+        avgRating: "3.8",
+      },
+    },
+    {
+      data: {
+        id: "334455",
+        name: "Burger King",
+        cloudinaryImageId: "bdcd233971b7c81bf77e1fa4471280eb",
+        cuisines: ["burgers", "Biryani", "American"],
+        costForTwo: 40000,
+        deliveryTime: 36,
+        avgRating: "4.2",
+      },
+    },
+    {
+      data: {
+        id: "334466",
+        name: "Domino's",
+        cloudinaryImageId: "bdcd233971b7c81bf77e1fa4471280eb",
+        cuisines: ["burgers", "Biryani", "American"],
+        costForTwo: 40000,
+        deliveryTime: 36,
+        avgRating: "4.1",
+      },
+    },
+  ]);
 
   return (
     <div className="body">
@@ -35,8 +44,10 @@ const Body = () => {
         <button
           className="filter-btn"
           onClick={() => {
-            //Filter top rated restaurants
-            listOfRest = listOfRest.filter(res=>res.data.avgRating > 4)
+            const filteredList = listOfRest.filter(
+              (res) => res.data.avgRating > 4
+            );
+            setListOfRest(filteredList);
           }}
         >
           Top rated Restaurants
@@ -44,7 +55,7 @@ const Body = () => {
       </div>
       <div className="res-container">
         {listOfRest.map((restaurant) => (
-          <RestaurantCard key={restaurant.data.id} resData={restaurant} />
+          <RestaurantCard key={restaurant.data.id} resData={restaurant.data} />
         ))}
       </div>
     </div>
