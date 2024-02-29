@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [listOfRest, setListOfRest] = useState([]);
-
 
   useEffect(() => {
     fetchData();
   }, [])
 
   const fetchData = async () => {
-    // const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6126255&lng=77.04108959999999&page_type=DESKTOP_WEB_LISTING");
 
     const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING");
 
@@ -21,8 +20,13 @@ const Body = () => {
     setListOfRest(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
   }
 
+  //conditional rendering- rendering on the bases of the conditions
+  // if(listOfRest.length === 0){
+  //   return <Shimmer />
+  // }
 
-  return (
+  //ternary operator
+  return listOfRest.length === 0 ? <Shimmer /> : (
     <div className="body">
       <div className="filter">
         <button
