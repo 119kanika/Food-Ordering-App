@@ -4,7 +4,7 @@ import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [listOfRest, setListOfRest] = useState([]);
-  const [filteredRest, setFilteredRest] = useState([])
+  const [filteredRest, setFilteredRest] = useState([]);
 
   const [searchText, setSeachText] = useState("");
 
@@ -14,17 +14,19 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
-    );
+        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
+      )
 
     const json = await data.json();
 
-    //optional chaining
+    //optional chaining;
     setListOfRest(
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
 
-    setFilteredRest(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    setFilteredRest(
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
   };
 
   //conditional rendering- rendering on the bases of the conditions
@@ -34,7 +36,6 @@ const Body = () => {
   ) : (
     <div className="body">
       <div className="filter">
-
         <div className="search">
           <input
             type="text"
@@ -47,16 +48,21 @@ const Body = () => {
           <button
             className="search-btn"
             onClick={() => {
-              let filteredRes = listOfRest.filter(
-                (res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()));
+              let filteredRes = listOfRest.filter((res) =>
+                res.info.name.toLowerCase().includes(searchText.toLowerCase())
+              );
 
-                if(filteredRes){
-                  setFilteredRest(filteredRes);
-                }
-                else(
-                  setFilteredRest(<h3>Oh noo, Try somthing else!!</h3>)
-                )
+              setFilteredRest(filteredRes)
 
+              // if (filteredRes > 0) {
+              //   setFilteredRest(filteredRes);
+              // } else {
+              //   setFilteredRest([
+              //     {
+              //       info: { id: "error", name: "Oh no, Try something else!!" },
+              //     },
+              //   ]);
+              // }
             }}
           >
             Search
@@ -77,7 +83,7 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredRest.map((restaurant) => (
-          <RestaurantCard key={restaurant.info} resData={restaurant.info} />
+          <RestaurantCard key={restaurant.info.id} resData={restaurant.info} />
         ))}
       </div>
     </div>
