@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { LOGO_URL } from "../utils/constant";
 import { Link } from "react-router-dom";
+import { LOGO_URL } from "../utils/constant";
 
 const Header = () => {
   // let btnName = "Login";
