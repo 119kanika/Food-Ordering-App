@@ -75,7 +75,7 @@
     width: 100%;
 }
 
-
+/* ------------------------------------------------------ */
 
 .shimmer-container{
     display: flex;
@@ -87,4 +87,12 @@
     width: 200px;
     height: 400px;
     background-color: rgb(246, 246, 246);
+}
+
+
+/* ------------------------------------------------------ */
+
+.user-card{
+    padding: 10px;
+    border: 1px solid black;
 }
