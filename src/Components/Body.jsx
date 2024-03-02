@@ -53,16 +53,6 @@ const Body = () => {
               );
 
               setFilteredRest(filteredRes)
-
-              // if (filteredRes > 0) {
-              //   setFilteredRest(filteredRes);
-              // } else {
-              //   setFilteredRest([
-              //     {
-              //       info: { id: "error", name: "Oh no, Try something else!!" },
-              //     },
-              //   ]);
-              // }
             }}
           >
             Search
