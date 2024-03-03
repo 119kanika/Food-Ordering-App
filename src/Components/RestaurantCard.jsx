@@ -34,4 +34,19 @@ const RestaurantCard = (props) => {
   );
 };
 
+
+// HOF
+// input - restaurantCard ==> restaurantCardPromoted
+
+// export const WithOpenLabel = (RestaurantCard) => {
+//   return (props) => {
+//     return (
+//       <div>
+//         <label htmlFor="">Open Now</label>
+//         <RestaurantCard {...props}/>
+//       </div>
+//     )
+//   }
+// }
+
 export default RestaurantCard;

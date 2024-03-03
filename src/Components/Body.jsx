@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [listOfRest, setListOfRest] = useState([]);
@@ -30,6 +31,10 @@ const Body = () => {
     );
   };
 
+  const onlineStatus = useOnlineStatus();
+
+  if(onlineStatus === false) return <h1>Looks like you're offline!! Please heck your internet connection.</h1>
+
   //conditional rendering- rendering on the bases of the conditions
   //ternary operator
   return listOfRest.length === 0 ? (
@@ -37,17 +42,17 @@ const Body = () => {
   ) : (
     <div className="body">
       <div className="filter">
-        <div className="search">
+        <div className="search m-4 p-4">
           <input
             type="text"
-            className="search-box"
+            className="border border-solid border-black"
             value={searchText}
             onChange={(e) => {
               setSeachText(e.target.value);
             }}
           />
           <button
-            className="search-btn"
+            className="px-4 py-2 bg-green-100 m-4"
             onClick={() => {
               let filteredRes = listOfRest.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -61,7 +66,7 @@ const Body = () => {
         </div>
 
         <button
-          className="filter-btn"
+          className="px-4"
           onClick={() => {
             const filteredList = listOfRest.filter(
               (res) => res.data.avgRating > 4

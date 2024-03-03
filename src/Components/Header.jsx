@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { LOGO_URL } from "../utils/constant";
 
 const Header = () => {
-  // let btnName = "Login";
   const [btnName, setBtnName] = useState("Login");
 
   useEffect(() => {
@@ -11,22 +10,22 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="header">
+    <div className="flex justify-between shadow-md">
       <div className="logo-container">
-        <img className="logo" src={LOGO_URL} />
+        <img className="w-25 logo" src={LOGO_URL} />
       </div>
-      <div className="nav-items">
-        <ul>
-          <li>
+      <div className="nav-items flex items-center ">
+        <ul className="flex p-5 m-4">
+          <li className="px-4">
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className="px-4">
             <Link to="/about">About</Link>
           </li>
-          <li>
+          <li className="px-4">
             <Link to="/contact">Contact Us</Link>
           </li>
-          <li>
+          <li className="px-4">
             <Link to="/">Cart</Link>
           </li>
           <button
