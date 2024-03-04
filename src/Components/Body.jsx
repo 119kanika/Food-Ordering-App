@@ -69,7 +69,7 @@ const Body = () => {
           className="px-4"
           onClick={() => {
             const filteredList = listOfRest.filter(
-              (res) => res.data.avgRating > 4
+              (res) => res.info.avgRating > 4
             );
             setListOfRest(filteredList);
           }}
