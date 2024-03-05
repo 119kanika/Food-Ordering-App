@@ -77,6 +77,7 @@ const Body = () => {
           Top rated Restaurants
         </button>
       </div>
+      
       <div className="res-container">
         {filteredRest.map((restaurant) => (
           <Link
