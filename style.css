@@ -52,17 +52,148 @@
 
 /* --------------------------------------------------- */
 
+
 .res-container{
-    padding: 10px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items:center;
+    min-height: 70vh;
+}
+.res-card{
+    background-color: rgb(219, 196, 219);
+    width: 250px;
+    height: 330px;
+    border-radius: 7px;
+    margin: 25px;
+    cursor: pointer;
+    box-shadow: -1px 5px 10px 5px rgba(109, 105, 105, 0.2);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.res-card:hover{
+    transform: scale(1.01 );
+}
+.res-image{
+    width: 85%;
+    border-radius: 10px;
+    margin: 1rem 1rem;
+}
+.res-card .title{
+  text-decoration: none;
+font-size: 1.1em;
+margin: 8px 10px;
+font-weight: 550;
+}
+.res-card h5{
+    color: rgb(131, 122, 122);
+    font-size: .85em;
+    /* display: block; */
+    margin: 5px 10px;
+    font-weight: 200;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.res-card .description{
+   /* width: 80%; */
+   overflow: hidden;
+   font-size: .95em;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+/* .res-card span{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+} */
+.res-card .review{
+    /* position: relative; */
+    margin-left: 10px;
+    bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    font-weight: 100;
+}
+.res-card span .rating{
+    background-color: rgb(61, 53, 61);
+    border-radius: 4px;
+    padding: 5px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.res-card span .txt{
+    font-size: .95rem;
 }
 
+/* For restaurant card ✅⭐⭐⭐⭐⭐  */
+@media (max-width:620px){
+    .res-card{
+        width: 220px;
+    }
+    .res-card .title{
+    font-size: 1em;
+    font-weight: 600;
+    }
+    .res-card h5{
+        font-size: .75em;
+    }
+    .res-card .description{
+       width: 150px;
+    font-size: .95em;
+    }
+    .res-card span{
+        margin-top: 1.5rem;
+    }
+    .res-card span .rating{
+        border-radius: 3px;
+        padding: 3px;
+    }
+    .res-card .review{
+        position: relative;
+        bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        font-weight: 100;
+    }
+    .res-card .review .rating{
+        font-size: 13px;
+    }
+    .res-card span .txt{
+        font-size: .75rem;
+    }
+    
+}
+
+
+
+
+
+
+/* .res-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 .res-card{
-    height: 300px;
     width: 200px;
+    background-color: #f0f0f0;
+    border-radius: 15px;
     padding: 5px;
     margin: 5px;
+}
+.res-card:hover{
+    cursor: pointer;
+    border: 1px solid black;
+}
+.card-img{
+    width: 100%;
+    border-radius: 10px;
 }
 
 .res-card:hover{
@@ -72,7 +203,7 @@
 
 .res-logo{
     width: 100%;
-}
+} */
 
 /* ------------------------------------------------------ */
 

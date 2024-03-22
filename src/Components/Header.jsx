@@ -15,8 +15,8 @@ const Header = () => {
   return (
     <>
 
-      <nav className="flex items-center justify-between flex-wrap p-6 bg-indigo-100 shadow-lg shadow-gray-300 border rounded-2xl">
-        <div className="flex items-center text-red-900 text-2xl mr-6 lg:mr-72">
+      <nav className="flex items-center justify-between flex-wrap p-6 bg-zinc-600 shadow-lg shadow-gray-300 border rounded-2xl">
+        <div className="flex items-center text-white text-2xl mr-6 lg:mr-72">
           <img src={LOGO_URL} className="w-100 h-10 mr-2" alt="Logo" />
           <span>YumBites</span>
         </div>
@@ -47,21 +47,21 @@ const Header = () => {
           className={`w-full block flex-grow lg:flex lg:items-center lg:w-auto ${isOpen ? "block" : "hidden"}`}
         >
           <div className=" sm:text-xl  lg:flex-grow ">
-            <Link to="/" className="block mt-4 mr-10 lg:inline-block lg:mt-0 text-white-200 mr-4">
+            <Link to="/" className="block mt-4 mr-10 lg:inline-block lg:mt-0 text-white mr-4">
               Home
             </Link>
-            <Link to="/about" className="block mt-4 mr-10 lg:inline-block lg:mt-0 text-white-200 mr-4">
+            <Link to="/about" className="block mt-4 mr-10 lg:inline-block lg:mt-0 text-white mr-4">
               About 
             </Link>
-            <Link to="/contact" className="block mt-4 mr-10 lg:inline-block lg:mt-0 text-white-200 mr-4">
+            <Link to="/contact" className="block mt-4 mr-10 lg:inline-block lg:mt-0 text-white mr-4">
               Contact us
             </Link>
-            <Link to="/login" className="block mt-4 mr-10 lg:inline-block lg:mt-0 text-white-200 mr-4">
+            <Link to="/login" className="block mt-4 mr-10 lg:inline-block lg:mt-0 text-white mr-4">
               Login 
             </Link>
           </div>
           <div>
-            <Link to="/cart" className=" items-center vorder rounded-md  bg-blue-400 border-0 my-5 mr-10 py-1 px-2 text-white">
+            <Link to="/cart" className=" items-center vorder rounded-md  bg-purple-300 border-0 my-5 mr-10 py-1 px-2 text-white">
             Cart - ({cartItems.length} items)
             </Link>
           </div>

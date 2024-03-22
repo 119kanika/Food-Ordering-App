@@ -18,19 +18,23 @@ const RestaurantCard = (props) => {
     deliveryTime,
   } = resData;
 
+  console.log(deliveryTime)
+
   return (
-    <div className="res-card" style={styleCard}>
-      <img
-      className="res-logo"
-        alt="res-logo"
-        src={CDN_URL + cloudinaryImageId}
-      />
-      <h3>{name}</h3>
-      <h4>{cuisines.join(", ")}</h4>
-      <h4>{avgRating} stars</h4>
-      <h4>₹{costForTwo / 100} FOR TWO</h4>
-      <h4>{deliveryTime} minutes</h4>
+    <div className="container">
+
+      <div className="res-card">
+        <img className="res-image" src={CDN_URL + cloudinaryImageId} />
+
+        <h3 className="title">{name}</h3>
+        <h5 className="description">{cuisines.join(",")}</h5>
+        <span className="review">
+          <h4 className="rating">{avgRating}</h4>
+          {/* <h4 className="txt">{deliveryTime} minutes</h4> */}
+        </span>
+      </div>
     </div>
+
   );
 };
 
