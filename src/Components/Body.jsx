@@ -78,8 +78,11 @@ const Body = () => {
         </button>
       </div>
       
+
+      <h1 className="heading">Restaurants with online food ordering...</h1>
       <div className="res-container">
         {filteredRest.map((restaurant) => (
+          
           <Link
             to={"/restaurants/" + restaurant.info.id}
             key={restaurant.info.id}

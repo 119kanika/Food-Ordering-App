@@ -21,7 +21,7 @@ const RestaurantCard = (props) => {
   console.log(deliveryTime)
 
   return (
-    <div className="container">
+    <>
 
       <div className="res-card">
         <img className="res-image" src={CDN_URL + cloudinaryImageId} />
@@ -33,7 +33,8 @@ const RestaurantCard = (props) => {
           {/* <h4 className="txt">{deliveryTime} minutes</h4> */}
         </span>
       </div>
-    </div>
+
+    </>
 
   );
 };
